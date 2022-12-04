@@ -33,6 +33,7 @@ Polus is a really cool bot which has got amazing moderation features and much mo
 3. Rename env.text to .env and fill all the values of the .env file and config.json as well.
 5. Install all required modules with `pip install -r requirements.txt`
 6. Execute the bot with `python main.py`
+
 ❗ NOTE: If you face an error like `Microsoft Visual C++ 14.0 or greater is required`, install the build tools from [here](https://visualstudio.microsoft.com/visual-cpp-build-tools).
 ### All .env and config.json values explained...
 
