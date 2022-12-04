@@ -36,7 +36,7 @@ Polus is a really cool bot which has got amazing moderation features and much mo
 ❗ NOTE: If you face an error like `Microsoft Visual C++ 14.0 or greater is required`, install the build tools from [here](https://visualstudio.microsoft.com/visual-cpp-build-tools).
 ### All .env and config.json values explained...
 
-1. TOKEN, to get your discord bot token follow this [guide](https://www.writebots.com/discord-bot-token/), **also enable the `message content` intent from the bot tab in your developer portal as it will be required for certain features of the bot.
+1. TOKEN, to get your discord bot token follow this [guide](https://www.writebots.com/discord-bot-token/), **also enable the `message content` intent from the bot tab in your developer portal as it will be required for certain features of the bot.**
 2. POSTGRESQL_URL, to get this you need install [postgresql](https://www.postgresql.org/) in your computer or check out postgresql online hosting methods on your own.
 3. WEBHOOK LOGGER, create a private server since most of the owner command loggings will be sent via this webhook and its suggested to keep it private for security reasons, to get your webhook url check out this [guide](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)
 4. owner id, to get this check out this [guide](https://www.remote.tools/remote-work/how-to-find-discord-id)
