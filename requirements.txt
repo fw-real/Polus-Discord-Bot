@@ -1,0 +1,6 @@
+rstr
+asyncpg
+py-cord
+nest-asyncio
+python-dotenv
+python-dateutil
