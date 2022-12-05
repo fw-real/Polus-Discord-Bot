@@ -26,73 +26,55 @@ class Moderation(commands.Cog):
      
     @commands.Cog.listener()
     async def on_message(self, message):
-        blacklist = ['discord.gg/', 'discord.com/invite']
-        check = await db.run_query(f'select exists(select * from inviteblocker where guild_id={message.guild.id})')
-        if check[0]['exists'] == True:
-            if message.author == self.bot.user:
-                pass
-            else:
-                rcheck = await db.run_query(f'select whitelist_roles from inviteblocker where guild_id={message.guild.id}')
-                if rcheck[0]['whitelist_roles'] == None:
-                    if any(word in message.content.lower() for word in blacklist):
-                        try:
-                            await message.delete()
-                        except:
-                            pass
-                        await message.channel.send(f'{message.author.mention}, it seems like you sent an invite for a discord server. Please stop advertising.')
-                elif rcheck[0]['whitelist_roles'] == []:
-                    if any(word in message.content.lower() for word in blacklist):
-                        try:
-                            await message.delete()
-                        except:
-                            pass
-                        await message.channel.send(f'{message.author.mention}, it seems like you sent an invite for a discord server. Please stop advertising.')
+        try:
+            blacklist = ['discord.gg/', 'discord.com/invite']
+            check = await db.run_query(f'select exists(select * from inviteblocker where guild_id={message.guild.id})')
+            if check[0]['exists'] == True:
+                if message.author == self.bot.user:
+                    pass
                 else:
-                    rsrc = rcheck[0]['whitelist_roles']
-                    if any(role.id in rsrc for role in message.author.roles):
-                        pass
-                    else:
+                    rcheck = await db.run_query(f'select whitelist_roles from inviteblocker where guild_id={message.guild.id}')
+                    if rcheck[0]['whitelist_roles'] == None:
                         if any(word in message.content.lower() for word in blacklist):
                             try:
                                 await message.delete()
                             except:
                                 pass
                             await message.channel.send(f'{message.author.mention}, it seems like you sent an invite for a discord server. Please stop advertising.')
-        else:
+                    elif rcheck[0]['whitelist_roles'] == []:
+                        if any(word in message.content.lower() for word in blacklist):
+                            try:
+                                await message.delete()
+                            except:
+                                pass
+                            await message.channel.send(f'{message.author.mention}, it seems like you sent an invite for a discord server. Please stop advertising.')
+                    else:
+                        rsrc = rcheck[0]['whitelist_roles']
+                        if any(role.id in rsrc for role in message.author.roles):
+                            pass
+                        else:
+                            if any(word in message.content.lower() for word in blacklist):
+                                try:
+                                    await message.delete()
+                                except:
+                                    pass
+                                await message.channel.send(f'{message.author.mention}, it seems like you sent an invite for a discord server. Please stop advertising.')
+            else:
+                pass
+        except:
             pass
     @commands.Cog.listener('on_message')
     async def linkwarn_event(self, message):
-        blacklist = ['https://', 'http']
-        check = await db.run_query(f'select exists(select * from linkwarn where guild_id={message.guild.id})')
-        if check[0]['exists'] == True:
-            if message.author == self.bot.user:
-                pass
-            else:
-                rcheck = await db.run_query(f'select whitelist_roles from linkwarn where guild_id = {message.guild.id}')
-                channelid = await db.run_query(f'select channel_id from linkwarn where guild_id = {message.guild.id}')
-                if rcheck[0]['whitelist_roles'] == None:
-                    if any(word in message.content.lower() for word in blacklist):
-                        pingrole = await db.run_query(f'select pingrole from linkwarn where guild_id = {message.guild.id}')
-                        if pingrole[0]['pingrole'] == None:
-                            linkwarnalert_embed = discord.Embed(title='Message infos', description=f'User: {message.author} | {message.author.id}\nChannel: {message.channel.mention}\nMessage content:\n{message.content}')
-                            alertchannel = discord.utils.get(message.guild.channels, id=channelid[0]['channel_id'])
-                            await alertchannel.send(f'Link warning\n{message.jump_url}', embed=linkwarnalert_embed)
-                        else:
-                            rlist = pingrole[0]['pingrole']
-                            therlist = []
-                            for ids in rlist:
-                                rid = discord.utils.get(message.guild.roles, id=ids)
-                                therlist.append(rid)
-                            bro = [roles.mention for roles in therlist]
-                            bro2 = ', '.join(bro)
-                            linkwarnalert_embed = discord.Embed(title='Message infos', description=f'User: {message.author} | {message.author.id}\nChannel: {message.channel.mention}\nMessage content:\n{message.content}')
-                            alertchannel = discord.utils.get(message.guild.channels, id=channelid[0]['channel_id'])
-                            await alertchannel.send(f'{bro2}\nLink warning\n{message.jump_url}', embed=linkwarnalert_embed)
+        try:
+            blacklist = ['https://', 'http']
+            check = await db.run_query(f'select exists(select * from linkwarn where guild_id={message.guild.id})')
+            if check[0]['exists'] == True:
+                if message.author == self.bot.user:
+                    pass
                 else:
-                    rsrc = rcheck[0]['whitelist_roles']
-                    if any(role.id in rsrc for role in message.author.roles):
-                        pass
-                    else:
+                    rcheck = await db.run_query(f'select whitelist_roles from linkwarn where guild_id = {message.guild.id}')
+                    channelid = await db.run_query(f'select channel_id from linkwarn where guild_id = {message.guild.id}')
+                    if rcheck[0]['whitelist_roles'] == None:
                         if any(word in message.content.lower() for word in blacklist):
                             pingrole = await db.run_query(f'select pingrole from linkwarn where guild_id = {message.guild.id}')
                             if pingrole[0]['pingrole'] == None:
@@ -110,6 +92,30 @@ class Moderation(commands.Cog):
                                 linkwarnalert_embed = discord.Embed(title='Message infos', description=f'User: {message.author} | {message.author.id}\nChannel: {message.channel.mention}\nMessage content:\n{message.content}')
                                 alertchannel = discord.utils.get(message.guild.channels, id=channelid[0]['channel_id'])
                                 await alertchannel.send(f'{bro2}\nLink warning\n{message.jump_url}', embed=linkwarnalert_embed)
+                    else:
+                        rsrc = rcheck[0]['whitelist_roles']
+                        if any(role.id in rsrc for role in message.author.roles):
+                            pass
+                        else:
+                            if any(word in message.content.lower() for word in blacklist):
+                                pingrole = await db.run_query(f'select pingrole from linkwarn where guild_id = {message.guild.id}')
+                                if pingrole[0]['pingrole'] == None:
+                                    linkwarnalert_embed = discord.Embed(title='Message infos', description=f'User: {message.author} | {message.author.id}\nChannel: {message.channel.mention}\nMessage content:\n{message.content}')
+                                    alertchannel = discord.utils.get(message.guild.channels, id=channelid[0]['channel_id'])
+                                    await alertchannel.send(f'Link warning\n{message.jump_url}', embed=linkwarnalert_embed)
+                                else:
+                                    rlist = pingrole[0]['pingrole']
+                                    therlist = []
+                                    for ids in rlist:
+                                        rid = discord.utils.get(message.guild.roles, id=ids)
+                                        therlist.append(rid)
+                                    bro = [roles.mention for roles in therlist]
+                                    bro2 = ', '.join(bro)
+                                    linkwarnalert_embed = discord.Embed(title='Message infos', description=f'User: {message.author} | {message.author.id}\nChannel: {message.channel.mention}\nMessage content:\n{message.content}')
+                                    alertchannel = discord.utils.get(message.guild.channels, id=channelid[0]['channel_id'])
+                                    await alertchannel.send(f'{bro2}\nLink warning\n{message.jump_url}', embed=linkwarnalert_embed)
+        except:
+            pass
     
     @commands.Cog.listener('on_voice_state_update')
     @commands.cooldown(1, 30, commands.BucketType.user)
