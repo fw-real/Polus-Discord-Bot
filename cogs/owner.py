@@ -28,7 +28,7 @@ class Owner(commands.Cog):
     
     @commands.command()
     async def help(self, ctx):
-        embed = discord.Embed(title='Owner Commands', description='**Source Code: **[Github Repo](https://github.com/Nostorian/Polus-Discord-Bot)\n**Contact: **[Telegram](https://t.me/nostorian)\n\nNavigate\n**Support Me: **[PayPal](https://paypal.me/nostorian) through different sections of owner commands with the dropdown menu below.\n**⚠️ WARNING: Be mindful where you execute certain commands due to security reasons.**', colour=discord.Colour.blue())
+        embed = discord.Embed(title='Owner Commands', description='**Source Code: **[Github Repo](https://github.com/Nostorian/Polus-Discord-Bot)\n**Contact: **[Telegram](https://t.me/nostorian)\n**Support Me: **[PayPal](https://paypal.me/nostorian)\n\nNavigate through different sections of owner commands with the dropdown menu below.\n**⚠️ WARNING: Be mindful where you execute certain commands due to security reasons.**', colour=discord.Colour.blue())
         class OwnerView(View):
             async def on_timeout(self):
                 view.remove_item(dropdown_menu)
