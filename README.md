@@ -46,5 +46,5 @@ Polus is a really cool bot which has got amazing moderation features and much mo
 coming soon...
 
 # Original Project
-This bot is a recreation of https://nukebot.org and I thank the developer for giving permission to remake his project without any fuss. Do checkout the original project as well. If you dont like to self host your own version, you can invite the [public bot](https://discord.com/oauth2/authorize?client_id=1003543331919376504&permissions=285698135&scope=bot%20applications.commands)
+This bot is a recreation of https://nukebot.org and I thank the developer for giving permission to remake his project without any fuss. Do checkout the original project as well. If you dont like to self host your own version, you can invite the [public bot](https://invite.nukebot.org/)
 
