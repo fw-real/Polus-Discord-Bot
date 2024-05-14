@@ -22,6 +22,9 @@
   <a href="#original-project">Original Project</a>
 </p>
 
+# Warning
+Project is outdated and could be in short of latest commands published in the [origina creation](https://nukebot.org/) as i last updated this code 2 years ago and for now don't plan on updating anytime soon but will keep project unarchived incase I change my mind
+
 # Overview
 Polus is a really cool bot which has got amazing moderation features and much more. The bot is completely coded in Python utilizing the py-cord API and was recreated by only executing the commands available to public without any access to the [original project's](https://nukebot.org/) source code. This is a *self-hosted bot* meaning you will need to host and maintain your own instance, instructions for self-hosting are given below. You can contact me at my [telegram](https://t.me/nostorian) or open an [issue](https://github.com/Nostorian/Polus-Discord-Bot/issues) if you face any problems with self-hosting.
 
