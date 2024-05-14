@@ -23,10 +23,10 @@
 </p>
 
 # Overview
-Polus is a really cool bot which has got amazing moderation features and much more. The bot is completely coded in Python utilizing the py-cord API. This is a *self-hosted bot* meaning you will need to host and maintain your own instance, instructions for self-hosting are given below. You can contact me at my [telegram](https://t.me/nostorian) or open an [issue](https://github.com/Nostorian/Polus-Discord-Bot/issues) if you face any problems with self-hosting.
+Polus is a really cool bot which has got amazing moderation features and much more. The bot is completely coded in Python utilizing the py-cord API and was recreated by only executing the commands available to public without any access to the [original project's](https://nukebot.org/) source code. This is a *self-hosted bot* meaning you will need to host and maintain your own instance, instructions for self-hosting are given below. You can contact me at my [telegram](https://t.me/nostorian) or open an [issue](https://github.com/Nostorian/Polus-Discord-Bot/issues) if you face any problems with self-hosting.
 
 # Self Hosting
-**Currently only Windows Installation or deploying the project on [Railway](https://railway.app) is supported.**
+**Only windows installation is documented here, rest you can figure out yourself.**
 ## Windows Installation
 1. Download the [source code](https://github.com/Nostorian/Polus-Discord-Bot/archive/refs/heads/main.zip) and [python](https://www.python.org/downloads/)
 2. Unzip the file with either [WinRAR](https://www.win-rar.com/) or [7-Zip](https://www.7-zip.org/download.html)
@@ -42,8 +42,6 @@ Polus is a really cool bot which has got amazing moderation features and much mo
 3. WEBHOOK LOGGER, create a private server since most of the owner command loggings will be sent via this webhook and its suggested to keep it private for security reasons, to get your webhook url check out this [guide](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)
 4. owner id, to get this check out this [guide](https://www.remote.tools/remote-work/how-to-find-discord-id)
 5. success emoji and error emoji, really man? just download emojis from emojis folder and upload to ur guild get their syntax and paste it in the respective fields.
-## Railway Installation
-coming soon...
 
 # Original Project
 This bot is a recreation of https://nukebot.org and I thank the developer for giving permission to remake his project without any fuss. Do checkout the original project as well. If you dont like to self host your own version, you can invite the [public bot](https://invite.nukebot.org/)
