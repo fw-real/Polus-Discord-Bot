@@ -26,12 +26,12 @@
 Project is outdated and could be in short of latest commands published in the [original project](https://nukebot.org/) as i last updated this code 2 years ago and for now don't plan on updating anytime soon but will keep project unarchived incase I change my mind
 
 # Overview
-Polus is a really cool bot which has got amazing moderation features and much more. The bot is completely coded in Python utilizing the py-cord API and was recreated by only executing the commands available to public without any access to the [original project's](https://nukebot.org/) source code. This is a *self-hosted bot* meaning you will need to host and maintain your own instance, instructions for self-hosting are given below. You can contact me at my [telegram](https://t.me/nostorian) or open an [issue](https://github.com/Nostorian/Polus-Discord-Bot/issues) if you face any problems with self-hosting.
+Polus is a really cool bot which has got amazing moderation features and much more. The bot is completely coded in Python utilizing the py-cord API and was recreated by only executing the commands available to public without any access to the [original project's](https://nukebot.org/) source code. This is a *self-hosted bot* meaning you will need to host and maintain your own instance, instructions for self-hosting are given below. You can contact me at my [telegram](https://t.me/nostorian) or open an [issue](https://github.com/fw-real/Polus-Discord-Bot/issues) if you face any problems with self-hosting.
 
 # Self Hosting
 **Only windows installation is documented here, rest you can figure out yourself.**
 ## Windows Installation
-1. Download the [source code](https://github.com/Nostorian/Polus-Discord-Bot/archive/refs/heads/main.zip) and [python](https://www.python.org/downloads/)
+1. Download the [source code](https://github.com/fw-real/Polus-Discord-Bot/archive/refs/heads/main.zip) and [python](https://www.python.org/downloads/)
 2. Unzip the file with either [WinRAR](https://www.win-rar.com/) or [7-Zip](https://www.7-zip.org/download.html)
 3. Rename env.text to .env and fill all the values of the .env file and config.json as well.
 5. Install all required modules with `pip install -r requirements.txt`
